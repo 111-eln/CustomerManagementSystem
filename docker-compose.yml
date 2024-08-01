@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: postgresdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345
+    ports:
+      - "5454:5432"
+    networks:
+      - spring-cloud-network
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: elnur@example.com
+      PGADMIN_DEFAULT_PASSWORD: 12345
+    ports:
+      - "5055:80"
+    networks:
+      - spring-cloud-network
+
+  app:
+    image: cms:0.0.1
+    ports:
+      - 9001:9001
+    depends_on:
+      - db
+    networks:
+      - spring-cloud-network
+networks:
+  spring-cloud-network:
+    driver: bridge
+volumes:
+  db_data:
