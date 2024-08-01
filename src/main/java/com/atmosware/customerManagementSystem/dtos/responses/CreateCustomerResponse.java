@@ -6,5 +6,5 @@ import lombok.Data;
 public class CreateCustomerResponse {
     private String name;
     private String surName;
-    private long citizenNumber;
+    private String citizenNumber;
 }

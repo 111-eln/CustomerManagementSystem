@@ -15,13 +15,13 @@ public class CustomerBusinessRules {
     private CustomerRepository customerRepository;
     private MernisManager customerCheckService;
 
-    public void customerAlreadyExist(long customerCitiezenNumber){
+    public void customerAlreadyExist(String customerCitiezenNumber){
         if(customerRepository.findByCitizenNumber(customerCitiezenNumber)!=null){
             throw new BusinessException(MessagesConstants.CustomerErrors.THIS_USER_ALREADY_EXIST);
 
         }
     }
-    public void customerShouldBeExist(long customerCitiezenNumber){
+    public void customerShouldBeExist(String customerCitiezenNumber){
         if(customerRepository.findByCitizenNumber(customerCitiezenNumber)==null){
             throw new BusinessException(MessagesConstants.CustomerErrors.THIS_USER_DOESNT_EXIST);
 

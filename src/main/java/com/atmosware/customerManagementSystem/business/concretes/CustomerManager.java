@@ -40,7 +40,7 @@ public class CustomerManager implements CustomerService {
     }
 
     @Override
-    public GetByCitizenNumberCustomerResponse getByCitizenNumber(long citizenNumber) {
+    public GetByCitizenNumberCustomerResponse getByCitizenNumber(String citizenNumber) {
         customerBusinessRules.customerShouldBeExist(citizenNumber);
         Customer customer=customerRepository.findByCitizenNumber(citizenNumber);
         System.out.println(customer);
@@ -50,15 +50,15 @@ public class CustomerManager implements CustomerService {
 
     @Override
     public UpdateCustomerResponse update(UpdateCustomerRequest request) {
+        customerBusinessRules.customerShouldBeExist(request.getCitizenNumber());
         Customer customer=customerRepository.findByCitizenNumber(request.getCitizenNumber());
         customerBusinessRules.mernisCheck(modelMapperService.forRequest().map(customer,CreateCustomerRequest.class));
-        customerBusinessRules.customerShouldBeExist(request.getCitizenNumber());
         customerRepository.save(customer);
         return modelMapperService.forResponse().map(customer, UpdateCustomerResponse.class);
     }
 
     @Override
-    public void delete(long citizenNumber) {
+    public void delete(String citizenNumber) {
         customerBusinessRules.customerShouldBeExist(citizenNumber);
         Customer customer=customerRepository.findByCitizenNumber(citizenNumber);
         customerRepository.delete(customer);

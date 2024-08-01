@@ -11,7 +11,7 @@ import java.util.List;
 public interface CustomerService {
 CreateCustomerResponse add(CreateCustomerRequest request);
 List<GetCustomerResponse> getAll();
-GetByCitizenNumberCustomerResponse getByCitizenNumber(long citizenNumber);
+GetByCitizenNumberCustomerResponse getByCitizenNumber(String citizenNumber);
 UpdateCustomerResponse update(UpdateCustomerRequest request);
-void delete(long citizenNumber);
+void delete(String citizenNumber);
 }

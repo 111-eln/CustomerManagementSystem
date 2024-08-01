@@ -34,7 +34,7 @@ public class MernisManager implements MernisService {
                     "      <DogumYili>%s</DogumYili>\n" +
                     "    </TCKimlikNoDogrula>\n" +
                     "  </soap12:Body>\n" +
-                    "</soap12:Envelope>", customer.getCitizenNumber(), customer.getName(), customer.getSurName(), customer.getBirth_Date());
+                    "</soap12:Envelope>", Long.parseLong(customer.getCitizenNumber()), customer.getName(), customer.getSurName(), customer.getBirth_Date());
             con.setDoOutput(true);//bağlantının veri gönderip gönderemeyeceği ayarlanır.
             DataOutputStream wr = new DataOutputStream(con.getOutputStream());//çıktı akışına gönderilcek veriler yazılır
             wr.writeBytes(xml);

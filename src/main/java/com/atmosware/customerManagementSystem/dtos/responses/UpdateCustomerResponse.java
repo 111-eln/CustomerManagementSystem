@@ -7,6 +7,6 @@ import lombok.Data;
 public class UpdateCustomerResponse {
     private String name;
     private String surName;
-    private long citizenNumber;
+    private String citizenNumber;
     private boolean is_active;
 }

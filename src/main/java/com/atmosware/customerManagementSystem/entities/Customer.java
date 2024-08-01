@@ -38,7 +38,7 @@ public class Customer {
     @Column(name = "age")
     private int age;
     @Column(name = "citizenNumber")
-    private long citizenNumber;
+    private String citizenNumber;
     @Column(name = "birth_Date")
     private int birth_Date;
     @Column(name = "is_active")

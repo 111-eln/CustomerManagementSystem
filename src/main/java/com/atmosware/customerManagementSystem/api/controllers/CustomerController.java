@@ -1,9 +1,6 @@
 package com.atmosware.customerManagementSystem.api.controllers;
-
 import com.atmosware.customerManagementSystem.business.abstracts.CustomerService;
 import com.atmosware.customerManagementSystem.dtos.requests.CreateCustomerRequest;
-import com.atmosware.customerManagementSystem.dtos.requests.DeleteCustomerRequest;
-import com.atmosware.customerManagementSystem.dtos.requests.GetByCitizenNumberCustomerRequest;
 import com.atmosware.customerManagementSystem.dtos.requests.UpdateCustomerRequest;
 import com.atmosware.customerManagementSystem.dtos.responses.*;
 import jakarta.validation.Valid;
@@ -35,7 +32,7 @@ public class CustomerController {
     @GetMapping("/{customerCitizenNumber}")
     @ResponseStatus(HttpStatus.OK)
 
-    public GetByCitizenNumberCustomerResponse getByCitizenNumber(@RequestParam @Valid long citizenNumber) {
+    public GetByCitizenNumberCustomerResponse getByCitizenNumber(@RequestParam @Valid String citizenNumber) {
         return customerService.getByCitizenNumber(citizenNumber);
     }
 
@@ -48,7 +45,7 @@ public class CustomerController {
 
     @DeleteMapping("/{customerCitizenNumber}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@RequestParam @Valid long citizenNumber) {
+    public void delete(@RequestParam @Valid String citizenNumber) {
        customerService.delete(citizenNumber);
     }
 }

@@ -13,6 +13,6 @@ import org.antlr.v4.runtime.misc.NotNull;
 @Data
 public class DeleteCustomerRequest {
     @NotNull
-    @ValidLong(message = "CitizenNumber must be 11 digits and contain only numbers")
-    private long citizenNumber;
+    @Pattern(regexp = "^[0-9]{11}$",message = "CitizenNumber must be 11 digits and contain only numbers")
+    private String citizenNumber;
 }
