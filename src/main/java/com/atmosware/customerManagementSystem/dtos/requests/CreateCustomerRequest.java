@@ -1,7 +1,5 @@
 package com.atmosware.customerManagementSystem.dtos.requests;
 
-import com.atmosware.customerManagementSystem.crossCuttingConcerns.ValidLong;
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;

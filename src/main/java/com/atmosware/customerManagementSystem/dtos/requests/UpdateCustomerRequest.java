@@ -1,8 +1,6 @@
 package com.atmosware.customerManagementSystem.dtos.requests;
 
-import com.atmosware.customerManagementSystem.crossCuttingConcerns.ValidLong;
 import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 import lombok.Data;
 import org.antlr.v4.runtime.misc.NotNull;
 
