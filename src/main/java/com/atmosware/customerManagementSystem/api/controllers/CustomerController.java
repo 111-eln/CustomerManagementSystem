@@ -23,7 +23,7 @@ public class CustomerController {
 
     }
 
-    @PutMapping("/{customerCitizenNumber}")
+    @PutMapping
     @ResponseStatus(HttpStatus.OK)
     public UpdateCustomerResponse update(@RequestBody @Valid UpdateCustomerRequest updateCustomerRequest) {
         return customerService.update(updateCustomerRequest);
@@ -32,7 +32,7 @@ public class CustomerController {
     @GetMapping("/{customerCitizenNumber}")
     @ResponseStatus(HttpStatus.OK)
 
-    public GetByCitizenNumberCustomerResponse getByCitizenNumber(@RequestParam @Valid String citizenNumber) {
+    public GetByCitizenNumberCustomerResponse getByCitizenNumber(@PathVariable @Valid String citizenNumber) {
         return customerService.getByCitizenNumber(citizenNumber);
     }
 
@@ -43,7 +43,7 @@ public class CustomerController {
         return customerService.getAll();
     }
 
-    @DeleteMapping("/{customerCitizenNumber}")
+    @DeleteMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@RequestParam @Valid String citizenNumber) {
        customerService.delete(citizenNumber);
